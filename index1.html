@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>态势图</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<div class="head">
+		<div class="headText">
+			<p>食品进出我省态势</p>
+			<div class="topBtn">
+				<span class="active">进入</span>
+				<span>离开</span>
+			</div>
+		</div>
+	</div>
+	<div class="container clearfix">
+		<div class="left fl">
+			<div id="verticalBar">
+				<h3 class="title">国家/地区食品离开我省</h3>
+				<div id="bar3"></div>
+			</div>
+			<div id="pieChart">
+				<h3 class="title">境外食品滞留境外食品</h3>
+				<div id="pieMain"></div>
+			</div>
+		</div>
+		<div class="right fr">
+			<div class="contentTop clearfix">
+				<div class="tips fl">
+					<div id="message">
+						<ul class="title clearfix">
+							<li class="fl">今日进入/<span>境外进入</span></li>
+							<li class="fl">滞留食品数</li>
+							<li class="fl">今日离开/<span>境外离开</li>
+						</ul>
+						<ul class="numContent clearfix">
+							<li class="fl first"><span id="todayEntry">0</span> / <span id="overseasEntry">0</span></li>
+							<li class="fl second" id="detainedNumber">0</li>
+							<li class="fl third"><span id="todayLeave">0</span> / <span id="overseasLeave">0</span></li>
+						</ul>
+					</div>
+					<div id="mapMain"></div>
+				</div>
+				<div class="dataShow fr">
+					<div class="barImage">
+						<h3 class="title">境外食品从国内离开我省城市</h3>
+						<div id="bar1"></div>
+					</div>
+					<div class="barImage">
+						<h3 class="title">境外食品从国内离开我省城市</h3>
+						<div id="bar2"></div>
+					</div>
+				</div>
+			</div>
+			<div class="box">
+				<div id="record">
+					<ul class="title clearfix">
+						<li>离开日期</li>
+						<li>营业执照</li>
+						<li>名称</li>
+						<li>国籍/地区</li>
+						<li>离开地点</li>
+						<li>出境国家</li>
+					</ul>
+					<div id="wrap">
+						<ul class="manList">
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+							<li class="clearfix">
+								<span>2018/15/03</span>
+								<span>350821548965478945</span>
+								<span>羊肉、牛肉</span>
+								<span>中国.北京</span>
+								<span>美国纽约</span>
+								<span>中国</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.FontScroll.js"></script>
+	<script src="js/countUp.min.js"></script>
+	<script src="js/echarts.js"></script>
+	<script src="js/world.js"></script>
+	<script>
+		var pieChart,bar1,bar2,bar3,mapMain;
+		$(function(){
+			$('.topBtn span').click(function(){
+				var idx = $(this).index();
+				if (idx==0) {
+					window.location.href = 'index.html';
+				}else{
+					window.location.href = 'index1.html';
+				}
+			})
+			//无缝滚动
+			$('#wrap').Scroll({
+				line:1,
+				speed: 800,
+				timer: 2000
+			})
+			//数据跳动
+			formatNumber();
+
+			//图表start
+			pieMap('pieMain');
+			bar1('bar1');
+			bar2('bar2');
+			bar3('bar3');
+			mapMain('mapMain');
+		})
+		function formatNumber(){
+			var options = {
+				useEasing: true,
+				useGrouping: true,
+				separator: ',',
+				decimal: '.',
+				prefix: '',
+				suffix: ''
+			}
+			var todayEntry = new CountUp('todayEntry',0,20000,0,2.5.options);
+			var overseasEntry = new CountUp('overseasEntry',0,20000,0,2.5.options);
+			var detainedNumber = new CountUp('detainedNumber',0,20000,0,2.5.options);
+			var todayLeave = new CountUp('todayLeave',0,20000,0,2.5.options);
+			var overseasLeave = new CountUp('overseasLeave',0,20000,0,2.5.options);
+			todayEntry.start();
+			overseasEntry.start();
+			todayLeave.start();
+			overseasLeave.start();
+		}
+
+		/*饼图*/
+		function pieMap(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+			    tooltip : {
+			        trigger: 'item',
+			        formatter: "{b} : {c}"
+			    },
+			    color: ['#ff4040','#ff4c4c','#ff7c49','#ffa749','#ffd649','#8fe85f','#3be1eb','#18c8fa','#cc7cff'],
+			    legend: {
+			    	bottom: 30,
+			        left: 'center',
+			        data: ['菲律宾','加州','朝鲜','印度','澳大利亚','巴西','俄罗斯','加拿大','新加坡'],
+			        textStyle: {
+			        	color: '#9ea0a7',
+			        	fontSize: 12
+			        },
+			        itemWidth: 15,
+			        itemHeight: 8,
+			        itemGap: 10
+			    },
+			    series : [
+			        {
+			            name: '滞留境外人数',
+			            type: 'pie',
+			            radius : '40%',
+			            center: ['50%', '40%'],
+			            selectedMode: 'single',
+			            data:[
+			                {value:132, name:'菲律宾'},
+			                {value:256, name:'加州'},
+			                {value:256, name:'朝鲜'},
+			                {value:500, name:'印度'},
+			                {value:180, name:'澳大利亚'},
+			                {value:310, name:'巴西'},
+			                {value:234, name:'俄罗斯'},
+			                {value:135, name:'加拿大'},
+			                {value:400, name:'新加坡'}
+			            ],
+			            itemStyle: {
+			                emphasis: {
+			                    shadowBlur: 10,
+			                    shadowOffsetX: 0,
+			                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+			                }
+			            },
+			            labelLine: {
+			            	normal: {
+			            		length: 5
+			            	}
+			            },
+			            label: {
+			            	normal: {
+			            		textStyle:{
+			            			color: '#9ea0a7',
+			            			fontSize: 12
+			            		},
+			            		formatter: '{b}  {c}'
+			            	}
+			            },
+			            lineStyle: {
+			            	normal: {
+			            		symbol: 'circle'
+			            	}
+			            }
+			        }
+			    ]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        pieChart = myChart;
+		}
+		/*柱状图*/
+		function bar1(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	        	tooltip: {
+	        		trigger: 'axis',
+	        		axisPointer: {
+	        			type: 'shadow'
+	        		}
+	        	},
+	        	grid: {
+	        		left: '3%',
+	        		bottom: '3%',
+	        		right: '3%',
+	        		top: 25,
+	        		containLabel: true
+	        	},
+			    xAxis: {
+			        type: 'category',
+			        data: ['中国', '澳大利亚', '印度尼西亚', '美国', '日本', '加拿大', '韩国', '俄罗斯'],
+			        axisLabel: {
+			        	rotate: '60',
+			        	color: function(value, index){
+			        		switch(index){
+			        			case 0:
+			        				return '#ff765f';
+			        				break;
+			        			case 1:
+			        				return '#f9aa4a';
+			        				break;
+			        			case 2:
+			        				return '#8ae466';
+			        				break;
+			        			default:
+			        				return '#9ea0a7';
+			        		}
+			        	}	
+			        },
+			        axisLine: {
+		        		lineStyle: {
+		        			color: '#0d3a70'
+		        		}
+		        	},
+		        	axisTick: {
+		        		inside: true
+		        	}
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisTick: {
+			        	show: false
+			        },
+			        axisLabel: {
+			        	color: '#9ea0a7'
+			        },
+			        axisLine: {
+			        	show: false
+			        },
+			        splitLine: {
+			        	lineStyle: {
+			        		color: '#003c40'
+			        	}
+			        },
+			        splitArea: {
+			        	show: true,
+			        	areaStyle: {
+			        		color: ['rgba(0, 0, 0, 0)','rgba(0, 60, 64, 0.3)']
+			        	}
+			        }
+			    },
+			    series: [{
+			        data: [120, 200, 150, 80, 70, 110, 130, 350],
+			        type: 'bar',
+			        barWidth: 10,
+			        itemStyle: {
+			        	emphasis: {
+			        		barBorderRadius: 100
+			        	},
+			        	normal: {
+			        		barBorderRadius: 100,
+			        		color: function(params){
+			        			var colorList = [
+			        				['#ffa749','#ff765f'],
+			        				['#8fe85f','#f9ab4a'],
+			        				['#00c7b7','#89e467'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778']
+			        			];
+			        			return new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0,color: colorList[params.dataIndex][0]},{offset: 0,color: colorList[params.dataIndex][1]}])
+			        		}
+			        	}
+			        }
+			    }]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        bar1 = myChart;
+		}
+		function bar2(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	        	tooltip: {
+	        		trigger: 'axis',
+	        		axisPointer: {
+	        			type: 'shadow'
+	        		}
+	        	},
+	        	grid: {
+	        		left: '3%',
+	        		bottom: '3%',
+	        		right: '3%',
+	        		top: 25,
+	        		containLabel: true
+	        	},
+			    xAxis: {
+			        type: 'category',
+			        data: ['中国', '澳大利亚', '印度尼西亚', '美国', '日本', '加拿大', '韩国', '俄罗斯'],
+			        axisLabel: {
+			        	rotate: '60',
+			        	color: function(value, index){
+			        		switch(index){
+			        			case 0:
+			        				return '#ff765f';
+			        				break;
+			        			case 1:
+			        				return '#f9aa4a';
+			        				break;
+			        			case 2:
+			        				return '#8ae466';
+			        				break;
+			        			default:
+			        				return '#9ea0a7';
+			        		}
+			        	}	
+			        },
+			        axisLine: {
+		        		lineStyle: {
+		        			color: '#0d3a70'
+		        		}
+		        	},
+		        	axisTick: {
+		        		inside: true
+		        	}
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisTick: {
+			        	show: false
+			        },
+			        axisLabel: {
+			        	color: '#9ea0a7'
+			        },
+			        axisLine: {
+			        	show: false
+			        },
+			        splitLine: {
+			        	lineStyle: {
+			        		color: '#003c40'
+			        	}
+			        },
+			        splitArea: {
+			        	show: true,
+			        	areaStyle: {
+			        		color: ['rgba(0, 0, 0, 0)','rgba(0, 60, 64, 0.3)']
+			        	}
+			        }
+			    },
+			    series: [{
+			        data: [120, 200, 150, 80, 70, 110, 130, 350],
+			        type: 'bar',
+			        barWidth: 10,
+			        itemStyle: {
+			        	emphasis: {
+			        		barBorderRadius: 100
+			        	},
+			        	normal: {
+			        		barBorderRadius: 100,
+			        		color: function(params){
+			        			var colorList = [
+			        				['#ffa749','#ff765f'],
+			        				['#8fe85f','#f9ab4a'],
+			        				['#00c7b7','#89e467'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778']
+			        			];
+			        			return new echarts.graphic.LinearGradient(0, 0, 0, 1,[{offset: 0,color: colorList[params.dataIndex][0]},{offset: 1,color: colorList[params.dataIndex][1]}])
+			        		}
+			        	}
+			        }
+			    }]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        bar2 = myChart;
+		}
+		function bar3(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	        	tooltip: {
+	        		trigger: 'axis',
+	        		axisPointer: {
+	        			type: 'shadow'
+	        		}
+	        	},
+	        	grid: {
+	        		top: 0,
+	        		left: 0,
+	        		bottom: 0,
+	        		right: 0,
+	        		containLabel: true
+	        	},
+	        	xAxis: {
+			        type: 'value',
+			        show: false,
+			        axisTick: {
+			        	show: false
+			        },
+			        axisLabel: {
+			        	color: '#9ea0a7'
+			        },
+			        axisLine: {
+			        	show: false
+			        },
+			        splitLine: {
+			        	show: false
+			        },
+			        max: function(value){
+			        	return value.max + 100;
+			        }
+			    },
+			    yAxis: {
+			        type: 'category',
+			        data: ['中国', '澳大利亚', '印度尼西亚', '美国', '日本', '加拿大', '韩国', '俄罗斯','马来西亚', '其他合计'],
+			        inverse: true,
+			        axisLabel: {
+			        	color: '#9ea0a7'	
+			        },
+			        axisLine: {
+		        		show: false
+		        	},
+		        	axisTick: {
+		        		show: false
+		        	},
+		        	splitArea: {
+		        		show: true,
+		        		areaStyle: {
+		        			color: ['rgba(0, 0, 0, 0)','rgba(0, 60, 64, 0.12)']
+		        		}
+		        	}
+			    },
+			    textStyle: {
+			    	color: function(params){
+			    		var colorItem = ['#ff765f', '#f9aa4a', '#8ae466', '#9ea0a7', '#9ea0a7', '#9ea0a7', '#9ea0a7', '#9ea0a7', '#9ea0a7', '#9ea0a7'];
+			    		return colorItem[params.dataIndex];
+			    	}
+			    },
+			    series: [{
+			        data: [120, 200, 150, 80, 70, 110, 130, 350, 100, 180],
+			        type: 'bar',
+			        barWidth: 12,
+			        label: {
+			        	show: true,
+			        	position: 'right',
+			        	formatter: function(params) {
+			        		if (params.dataIndex == 0) {
+			        			return '{color1|' + params.value + '}';
+			        		}else if(params.dataIndex == 1){
+			        			return '{color2|' + params.value + '}';
+			        		}else if(params.dataIndex == 2){
+			        			return '{color3|' + params.value + '}';
+			        		}else{
+			        			return '{color4|' + params.value + '}';
+			        		}
+			        	},
+			        	rich: {
+			        		color1: {
+			        			color: '#ff7b5d'
+			        		},
+			        		color2: {
+			        			color: '#f0b04c'
+			        		},
+			        		color3: {
+			        			color: '#7eda77'
+			        		},
+			        		color4: {
+			        			color: '#9ea0a7'
+			        		}
+			        	}
+			        },
+			        itemStyle: {
+			        	emphasis: {
+			        		barBorderRadius: 100
+			        	},
+			        	normal: {
+			        		barBorderRadius: 100,
+			        		color: function(params){
+			        			var colorList = [
+			        				['#ffa749','#ff765f'],
+			        				['#8fe85f','#f9ab4a'],
+			        				['#00c7b7','#89e467'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778'],
+			        				['#007778','#007778']
+			        			];
+			        			return new echarts.graphic.LinearGradient(0, 0, 0, 1,[
+			        				{offset: 0,color: colorList[params.dataIndex][1]},
+			        				{offset: 1,color: colorList[params.dataIndex][0]}
+			        			]);
+			        		}
+			        	}
+			        }
+			    }]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        bar3 = myChart;
+		}
+		/*地图*/
+		function mapMain(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        var geoCoordMap = {
+			    '上海': [121.4648, 31.2891],
+			    '尼日利亚': [-4.388361, 11.186148],
+			    '美国洛杉矶': [-118.24311, 34.052713],
+			    '香港邦泰': [114.195466, 22.282751],
+			    '美国芝加哥': [-87.801833, 41.870975],
+			    '加纳库马西': [-4.62829, 7.72415],
+			    '英国曼彻斯特': [-1.657222, 51.886863],
+			    '德国汉堡': [10.01959, 54.38474],
+			    '哈萨克斯坦阿拉木图': [45.326912, 41.101891],
+			    '俄罗斯伊尔库茨克': [89.116876, 67.757906],
+			    '巴西': [-48.678945, -10.493623]
+			};
+			var BJData = [
+			    [{
+			        name: '尼日利亚',
+			        value: 9100
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '美国洛杉矶',
+			        value: 2370
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '香港邦泰',
+			        value: 3130
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '美国芝加哥',
+			        value: 2350
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '加纳库马西',
+			        value: 5120
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '英国曼彻斯特',
+			        value: 3110
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '德国汉堡',
+			        value: 6280
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '哈萨克斯坦阿拉木图',
+			        value: 7255
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '俄罗斯伊尔库茨克',
+			        value: 8125
+			    }, {
+			        name: '上海'
+			    }],
+			    [{
+			        name: '巴西',
+			        value: 3590
+			    }, {
+			        name: '上海'
+			    }]
+			];
+			var convertData = function(data) {
+			    var res = [];
+			    for (var i = 0; i < data.length; i++) {
+			        var dataItem = data[i];
+			        var fromCoord = geoCoordMap[dataItem[1].name];
+			        var toCoord = geoCoordMap[dataItem[0].name];
+			        if (fromCoord && toCoord) {
+			            res.push([{
+			                coord: fromCoord,
+			                value: dataItem[0].value
+			            }, {
+			                coord: toCoord,
+			            }]);
+			        }
+			    }
+			    return res;
+			};
+
+			var color = ['#a6c84c', '#ffa022', '#46bee9'];
+			var series = [];
+			[
+			    ['上海', BJData]
+			].forEach(function(item, i) {
+			    series.push(
+
+			        {
+			        	name: item[0],
+			            type: 'lines',
+			            zlevel: 2,
+			            effect: {
+			                show: true,
+			                period: 4, //箭头指向速度，值越小速度越快
+			                trailLength: 0.02, //特效尾迹长度[0,1]值越大，尾迹越长重
+			                symbol: 'diamond', //箭头图标
+			                symbolSize: 8, //图标大小
+			            },
+			            lineStyle: {
+			                normal: {
+			                	color: 'rgba(0, 253, 215, 0.8)',
+			                    width: 1, //尾迹线条宽度
+			                    opacity: 0, //尾迹线条透明度
+			                    curveness: .3 //尾迹线条曲直度
+			                }
+			            },
+
+			            data: convertData(item[1])
+			        }, {
+			            type: 'effectScatter',
+			            coordinateSystem: 'geo',
+			            zlevel: 2,
+			            rippleEffect: { //涟漪特效
+			                period: 4, //动画时间，值越小速度越快
+			                brushType: 'stroke', //波纹绘制方式 stroke, fill
+			                scale: 4 //波纹圆环最大限制，值越大波纹越大
+			            },
+			            label: {
+			                normal: {
+			                    show: true,
+			                    position: 'right', //显示位置
+			                    offset: [5, 0], //偏移设置
+			                    formatter: '{b}' //圆环显示文字
+			                },
+			                emphasis: {
+			                    show: true
+			                }
+			            },
+			            symbol: 'circle',
+			            symbolSize: function(val) {
+			                return 4 + val[2] / 1000; //圆环大小
+			            },
+			            itemStyle: {
+			                normal: {
+			                    show: false,
+			                    color: '#00fdd7'
+			                }
+			            },
+			            data: item[1].map(function(dataItem) {
+			                return {
+			                    name: dataItem[0].name,
+			                    value: geoCoordMap[dataItem[0].name].concat([dataItem[0].value])
+			                };
+			            }),
+			        },
+			        //被攻击点
+			        {
+			            type: 'scatter',
+			            coordinateSystem: 'geo',
+			            zlevel: 2,
+			            rippleEffect: {
+			                period: 4,
+			                brushType: 'stroke',
+			                scale: 4
+			            },
+			            label: {
+			                normal: {
+			                    show: true,
+			                    position: 'right',
+			                    offset:[5, 0],
+			                    color: '#00ffff',
+			                    formatter: '{b}',
+			                    textStyle: {
+			                        color: "#ff6f4d"
+			                    }
+			                },
+			                emphasis: {
+			                    show: true
+			                }
+			            },
+			            symbol: 'pin',
+			            symbolSize: 30,
+			            itemStyle: {
+			                normal: {
+			                    show: true,
+			                    color: '#ff6f4d'
+			                }
+			            },
+			            data: [{
+			                name: item[0],
+			                value: geoCoordMap[item[0]].concat([100]),
+			            }],
+			        }
+			    );
+			});
+
+			var option = {
+			    backgroundColor: 'transparent',
+			    title: {
+			        text: '上海',
+			        left: 'center',
+			        textStyle: {
+			            color: '#fff',
+			            fontSize: 20
+			        },
+			        padding: [20, 20, 20, 20]
+			    },
+			    tooltip: {
+			        trigger: 'item',
+			        backgroundColor: 'rgba(12, 204, 104, 0.92)',
+			        borderColor: '#FFFFCC',
+			        showDelay: 0,
+			        hideDelay: 0,
+			        enterable: true,
+			        transitionDuration: 0,
+			        extraCssText: 'z-index:100',
+			        formatter: function(params, ticket, callback) {
+			            //根据业务自己拓展要显示的内容
+			            var res = "";
+			            var name = params.name;
+			            var value = params.value[params.seriesIndex + 1];
+			            if (params.seriesType=='effectScatter') {
+			            	return "<span style='color:#fff;'>" + name + "</span><br/>数据：" + value;
+			            }else if(params.seriesType=='lines'){
+			            	return '人员数量：' + params.value;
+			            }else {
+			            	return name;
+			            }
+			            
+			        }
+			    },
+			    visualMap: { //图例值控制
+			        min: 0,
+			        max: 10000,
+			        calculable: true,
+			        color: ['#ff3333', 'orange', 'yellow', 'lime', 'aqua'],
+			        textStyle: {
+			            color: '#fff'
+			        }
+			    },
+			    geo: {
+			        map: 'world',
+			        label: {
+			            emphasis: {
+			                show: false
+			            }
+			        },
+			        roam: true, //是否允许缩放
+			        layoutCenter: ['50%', '50%'], //地图位置
+			        layoutSize: "110%",
+			        itemStyle: {
+			            normal: {
+			            	borderWidth: 1.1,
+			                color: 'rgba(7, 18, 23, 1)', //地图背景色
+			                borderColor: 'rgba(0,73,77,1)' //省市边界线
+			            },
+			            emphasis: {
+			                color: 'rgba(37, 43, 61, .5)' //悬浮背景
+			            }
+			        }
+			    },
+
+			    series: series
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        mapMain = myChart;
+		}
+		window.onresize = function(){
+			pieChart.resize();
+			bar1.resize();
+			bar2.resize();
+			bar3.resize();
+			mapMain.resize();
+		}
+	</script>
+</body>
+</html>

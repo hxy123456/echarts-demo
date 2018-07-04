@@ -1,0 +1,240 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html{
+	width: 100%;
+	height: 100%;
+}
+body{
+	width: 100%;
+	background: #02131a;
+}
+ul,li{
+	list-style: none;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix{
+	zoom: 1;
+}
+.clearfix:after{
+	content: '';
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+/* 头部 */
+.head{
+	position: relative;
+	color: #fff;
+	text-align: center;
+	height: 84px;
+}
+.head .headText{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -16px;
+	margin-left: -156px;
+}
+.head .headText > *{
+	display: inline-block;
+}
+.head p{
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.topBtn{
+	font-size: 0;
+	border: 1px solid #006b69;
+	border-radius: 200px;
+	background: rgba(0,49,32,0.25);
+}
+.topBtn span{
+	display: inline-block;
+	padding: 5px 10px;
+	font-size: 14px;
+	border-radius: 200px;
+	cursor: pointer;
+}
+.topBtn span.active{
+	background: #00afab;
+}
+.container{
+	width: 98%;
+	margin: 10px auto 0 auto;
+}
+.container .left{
+	width: 21.74%;
+}
+.container .right{
+	width: 77.474%;
+}
+#record{
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+}
+#record .title li{
+	float: left;
+	color: #fff;
+	line-height: 40px;
+	padding: 0 10px;
+	text-align: left;
+}
+#wrap{
+	height: 215px;
+	overflow: hidden;
+}
+#record .title li:nth-child(1),
+#record .manList span:nth-child(1){
+	width: 14%;
+}
+#record .title li:nth-child(2),
+#record .manList span:nth-child(2){
+	width: 23.857%;
+}
+#record .title li:nth-child(3),
+#record .manList span:nth-child(3){
+	width: 16%;
+}
+#record .title li:nth-child(4),
+#record .manList span:nth-child(4){
+	width: 15.143%;
+}
+#record .title li:nth-child(5),
+#record .manList span:nth-child(5){
+	width: 16.071%;
+}
+#record .title li:nth-child(6),
+#record .manList span:nth-child(6){
+	width: 14.071%;
+}
+
+#record .manList span{
+	float: left;
+	display: block;
+	font-size: 14px;
+	padding: 12px 10px;
+	-webkit-text-overflow: ellipsis;
+	-moz-text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: normal;
+	overflow: hidden;
+}
+#record .manList span:nth-child(2n+1){
+	color: #007b86;
+}
+#record .manList span:nth-child(2n){
+	color: #0084aa;
+}
+#record .manList li{
+	background: rgba(0,60,64,0.12);
+	border-bottom: 1px solid rgba(0,60,64,0.12);
+}
+
+
+.contentTop{
+	width: 100%;
+}
+.contentTop .tips{
+	width: 70.422%;
+	height: 500px;
+}
+.contentTop .tips li{
+	width: 33.33%;
+	content: #fff;
+	text-align: center;
+}
+.contentTop .tips .title{
+	font-size: 18px;
+}
+.contentTop .tips .title span{
+	color: #97abc9;
+}
+.contentTop .dataShow{
+	width: 28.732%;
+}
+
+.contentTop .numContent li{
+	height: 42px;
+	line-height: 42px;
+	background: rgba(31, 54, 102, 0.2);
+}
+.contentTop .numContent .first{
+	color: #ff6f4d;
+}
+.contentTop .numContent .first span:first-child{
+	color: #ff6f4d;
+}
+.contentTop .numContent .first span:nth-child(2){
+	color: #b84e35;
+}
+.contentTop .numContent .second{
+	width: 32.33%;
+	margin: 0 0.5%;
+	color: #ffae3a;
+}
+.contentTop .numContent .third{
+	color: #92e65e;
+}
+.contentTop .numContent .third span:first-child{
+	color: #92e65e;
+}
+.contentTop .numContent .third span:nth-child(2){
+	color: #51a71c;
+}
+.title{
+	font-size: 16px;
+	text-align: center;
+	color: #fff;
+	line-height: 40px;
+	background: rgba(0, 60, 64, 0.3);
+	padding: 0;
+	margin: 0;
+}
+
+#pieMain,
+#bar3,
+#bar1,
+#bar2{
+	width: 100%;
+	background: rgba(0,60,64,0.15);
+	margin-bottom: 20px;
+}
+#pieMain{
+	height: 416px;
+}
+
+#bar3{
+	height: 500px;
+	padding-left: 8px;
+}
+#bar1,#bar2{
+	height: 320px;
+}
+#mapMain{
+	width: 100%;
+	height: 660px;
+}
+@media (max-width: 1399px){
+	.contentTop .numContent{
+		font-size: 20px;
+	}
+	.contentTop .tips .title{
+		font-size: 16px;
+	}
+}
+
+
