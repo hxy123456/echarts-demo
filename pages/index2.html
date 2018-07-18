@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>echarts案例二</title>
+	<link rel="stylesheet" href="../css/style1.css">
+</head>
+<body>
+	<div class="head"><span>echarts案例二</span></div>
+	<div class="container clearfix">	
+		<div class="left fl">	
+			<div class="box box1">	
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+					<img src="../images/new/icon2.png" alt="" class="icon icon2">
+					<img src="../images/new/icon3.png" alt="" class="icon icon3">
+					<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">当日攻击来源 TOP5</span>
+				</div>
+				<div id="bar1"></div>
+			</div>
+			<div class="box box2">	
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+					<img src="../images/new/icon2.png" alt="" class="icon icon2">
+					<img src="../images/new/icon3.png" alt="" class="icon icon3">
+					<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">当日被攻击行业</span>
+				</div>
+				<div id="bar3"></div>
+			</div>
+			<div class="box box3">	
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+				<img src="../images/new/icon2.png" alt="" class="icon icon2">
+				<img src="../images/new/icon3.png" alt="" class="icon icon3">
+				<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">被攻击行业趋势 （7日走势）</span>
+				</div>
+				<div id="line1"></div>
+			</div>
+		</div>
+		<div class="mid fl">	
+			<div class="top">	
+				<div class="box box9 clearfix">	
+					<img src="../images/new/icon1.png" alt="" class="icon icon1">
+					<img src="../images/new/icon2.png" alt="" class="icon icon2">
+					<img src="../images/new/icon3.png" alt="" class="icon icon3">
+					<img src="../images/new/icon4.png" alt="" class="icon icon4">
+					<div class="title fl" style="border-right: 1px solid #053a67;">	
+						<img src="../images/new/arrow.png" alt="">
+						<span class="name">当日监测数</span>
+						<span id="todayNum" class="num">0</span>
+					</div>
+					<div class="title fl" style="border-right: 1px solid #053a67;">	
+						<img src="../images/new/arrow.png" alt="">
+						<span class="name">最近30日监测数</span>
+						<span id="recentlyNum" class="num">0</span>
+					</div>
+				</div>
+				<div id="map"></div>
+				<div class="box box8">	
+					<div class="title" style="height: 40px;line-height: 40px;">	
+						<img src="../images/new/arrow.png" alt="">
+						<span class="name">当日被攻击排行</span>
+					</div>
+					<ul class="tabList">	
+						<li class="first clearfix">	
+							<div><span class="num">1</span></div>
+							<div>厦门人才网</div>
+							<div><span class="count" id="num1">0</span>次</div>
+						</li>
+						<li class="second clearfix">	
+							<div><span class="num">2</span></div>
+							<div>厦门人才网</div>
+							<div><span class="count" id="num2">0</span>次</div>
+						</li>
+						<li class="third clearfix">	
+							<div><span class="num">3</span></div>
+							<div>厦门人才网</div>
+							<div><span class="count" id="num3">0</span>次</div>
+						</li>
+						<li class="clearfix">	
+							<div><span>4</span></div>
+							<div>厦门人才网</div>
+							<div><span class="count" id="num4">0</span>次</div>
+						</li>
+						<li class="clearfix">	
+							<div><span>5</span></div>
+							<div>厦门人才网</div>
+							<div><span class="count" id="num5">0</span>次</div>
+						</li>
+					</ul>
+				</div>
+				<div class="box box7">	
+					<img src="../images/new/icon1.png" alt="" class="icon icon1">
+					<img src="../images/new/icon2.png" alt="" class="icon icon2">
+					<img src="../images/new/icon3.png" alt="" class="icon icon3">
+					<img src="../images/new/icon4.png" alt="" class="icon icon4">
+					<table id="tab">
+						<thead>	
+							<tr>
+								<th>攻击事件</th>
+								<th>攻击类型</th>
+								<th>攻击源IP</th>
+								<th>攻击源</th>
+								<th>攻击目标IP</th>
+								<th>攻击目标</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2018/5/25 14:00</td>
+								<td>网页后门</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+							</tr>
+							<tr>
+								<td>2018/5/25 14:00</td>
+								<td>网页后门</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+							</tr>
+							<tr>
+								<td>2018/5/25 14:00</td>
+								<td>网页后门</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+							</tr>
+							<tr>
+								<td>2018/5/25 14:00</td>
+								<td>网页后门</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+							</tr>
+							<tr>
+								<td>2018/5/25 14:00</td>
+								<td>网页后门</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+								<td>192.168.1.107</td>
+								<td>北京.中国</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="right fl">	
+			<div class="box box4">
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+				<img src="../images/new/icon2.png" alt="" class="icon icon2">
+				<img src="../images/new/icon3.png" alt="" class="icon icon3">
+				<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">当日攻击类型</span>
+				</div>
+				<div id="pie"></div>
+			</div>
+			<div class="box box5">	
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+				<img src="../images/new/icon2.png" alt="" class="icon icon2">
+				<img src="../images/new/icon3.png" alt="" class="icon icon3">
+				<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">当日被攻击区域</span>
+				</div>
+				<div id="bar2"></div>
+			</div>
+			<div class="box box6">	
+				<img src="../images/new/icon1.png" alt="" class="icon icon1">
+				<img src="../images/new/icon2.png" alt="" class="icon icon2">
+				<img src="../images/new/icon3.png" alt="" class="icon icon3">
+				<img src="../images/new/icon4.png" alt="" class="icon icon4">
+				<div class="title">	
+					<img src="../images/new/arrow.png" alt="">
+					<span class="name">被攻击区域趋势 （7日走势）</span>
+				</div>
+				<div id="line2"></div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jquery.js"></script>
+	<script src="../js/jquery.FontScroll.js"></script>
+	<script src="../js/countUp.min.js"></script>
+	<script src="../js/echarts.js"></script>
+	<script src="../js/xiamen.js"></script>
+	<script>
+		var p1,p2,p3,p4,p5,p6,p7;
+		$(function(){
+			formatNumber();
+			hozBar('bar1');
+			pieMap('pie');
+			line('line1');
+			chartMap('map');
+		})
+		/*数据跳动方法*/
+		function formatNumber(){
+			var options = {
+				useEasing: true,
+				useGrouping: true,
+				separator: ',',
+				decimal: '.',
+				prefix: '',
+				suffix: ''
+			}
+			var todayNum = new CountUp('todayNum',0,65656,0,2.5.options);
+			var recentlyNum = new CountUp('recentlyNum',0,457865540,0,2.5.options);
+			var num1 = new CountUp('num1',0,56858,0,2.5.options);
+			var num2 = new CountUp('num2',0,46858,0,2.5.options);
+			var num3 = new CountUp('num3',0,36858,0,2.5.options);
+			var num4 = new CountUp('num4',0,36858,0,2.5.options);
+			var num5 = new CountUp('num5',0,16858,0,2.5.options);
+			todayNum.start();
+			recentlyNum.start();
+			num1.start();
+			num2.start();
+			num3.start();
+			num4.start();
+			num5.start();
+		}
+		/*横向柱状图*/
+		function hozBar(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+	        	tooltip: {
+	        		trigger: 'axis',
+	        		axisPointer: {
+	        			type: 'shadow'
+	        		}
+	        	},
+	        	grid: {
+	        		top: 0,
+	        		left: 10,
+	        		bottom: 0,
+	        		right: 0,
+	        		containLabel: true
+	        	},
+	        	xAxis: {
+			        type: 'value',
+			        show: false,
+			        axisTick: {
+			        	show: false
+			        },
+			        axisLabel: {
+			        	color: '#8ca6bf'
+			        },
+			        axisLine: {
+			        	show: false
+			        },
+			        splitLine: {
+			        	show: false
+			        },
+			        max: function(value){
+			        	return value.max + 1000;
+			        }
+			    },
+			    yAxis: {
+			        type: 'category',
+			        data: ['中国', '澳大利亚', '印度尼西亚', '美国', '日本'],
+			        inverse: true,
+			        axisLabel: {
+			        	color: '#8ca6bf'	
+			        },
+			        axisLine: {
+		        		show: false
+		        	},
+		        	axisTick: {
+		        		show: false
+		        	},
+		        	splitArea: {
+		        		show: true,
+		        		areaStyle: {
+		        			color: ['rgba(0, 0, 0, 0)','rgba(13, 58, 112, 0.15)']
+		        		}
+		        	}
+			    },
+			    textStyle: {
+			    	color: function(params){
+			    		var colorItem = ['#ff765f', '#f9aa4a', '#8ae466', '#8ca6bf', '#8ca6bf'];
+			    		return colorItem[params.dataIndex];
+			    	}
+			    },
+			    series: [{
+			        data: [1200, 2000, 1500, 800, 700],
+			        type: 'bar',
+			        barWidth: 12,
+			        label: {
+			        	show: true,
+			        	position: 'right',
+			        	formatter: function(params) {
+			        		if (params.dataIndex == 0) {
+			        			return '{color1|' + params.value + '}';
+			        		}else if(params.dataIndex == 1){
+			        			return '{color2|' + params.value + '}';
+			        		}else if(params.dataIndex == 2){
+			        			return '{color3|' + params.value + '}';
+			        		}else{
+			        			return '{color4|' + params.value + '}';
+			        		}
+			        	},
+			        	rich: {
+			        		color1: {
+			        			color: '#ff7b5d'
+			        		},
+			        		color2: {
+			        			color: '#f0b04c'
+			        		},
+			        		color3: {
+			        			color: '#7eda77'
+			        		},
+			        		color4: {
+			        			color: '#9ea0a7'
+			        		}
+			        	}
+			        },
+			        itemStyle: {
+			        	emphasis: {
+			        		barBorderRadius: 100
+			        	},
+			        	normal: {
+			        		barBorderRadius: 100,
+			        		color: function(params){
+			        			var colorList = [
+			        				['#ffa749','#ff765f'],
+			        				['#8fe85f','#f9ab4a'],
+			        				['#2090fc','#89e467'],
+			        				['#0258aa','#0258aa'],
+			        				['#0258aa','#0258aa']
+			        			];
+			        			return new echarts.graphic.LinearGradient(0, 0, 1, 0,[
+			        				{offset: 0,color: colorList[params.dataIndex][1]},
+			        				{offset: 1,color: colorList[params.dataIndex][0]}
+			        			]);
+			        		}
+			        	}
+			        }
+			    }]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        p1 = myChart;
+		}
+		/*饼图*/
+		function pieMap(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+
+	        // 指定图表的配置项和数据
+	        var option = {
+			    tooltip : {
+			        trigger: 'item',
+			        textStyle: {
+			        	fontSize: 12
+			        },
+			        formatter: function(params) {
+			        	return params.name + ': <br />' + params.value + '(' + params.percent + '%)';
+			        },
+			        axisPointer: {
+			        	type: 'shadow'
+			        }
+			    },
+			    color: ['#ff4040','#ff7c49','#ffc549','#8fe85f','#18c8fa','#cc7cff'],
+			    legend: {
+			    	bottom: 10,
+			        left: 'center',
+			        data: ['黑客工具','非法HTTP请求','进入攻击','暴力破解','DDOS攻击','网页后门'],
+			        textStyle: {
+			        	color: '#8ca6bf',
+			        	fontSize: 12
+			        },
+			        itemWidth: 12,
+			        itemHeight: 8,
+			        itemGap: 10,
+			        padding: [10, 10]
+			    },
+			    series : [
+			        {
+			            name: '访问来源',
+			            type: 'pie',
+			            radius : ['36%', '56%'],
+			            center: ['50%', '36%'],
+			            avoidLabelOverlap: false,
+			            data:[
+			                {value:132, name:'黑客工具'},
+			                {value:256, name:'非法HTTP请求'},
+			                {value:256, name:'进入攻击'},
+			                {value:500, name:'暴力破解'},
+			                {value:180, name:'DDOS攻击'},
+			                {value:310, name:'网页后门'}
+			            ],
+			            labelLine: {
+			            	normal: {
+			            		show: true,
+			            		length: 10
+			            	}
+			            },
+			            label: {
+			            	normal: {
+			            		show: true,
+			            		color: '#8ca6bf',
+			            		formatter: '{d}' + '%'
+			            	}
+			            },
+			            lineStyle: {
+			            	normal: {
+			            		symbol: 'circle'
+			            	}
+			            }
+			        }
+			    ]
+			};
+
+	        // 使用刚指定的配置项和数据显示图表。
+	        myChart.setOption(option);
+	        p4 = myChart;
+		}
+		/*折线*/
+		function line(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+	        var option = {
+			    title: {
+			        show: false
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			    	top: '4%',
+			    	left: 'center',
+			        data:[{
+			        	name: '科技',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '教育',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '购物',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '旅行',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '军事',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '金融',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '医疗',
+			        	icon: 'roundRect'
+			        },{
+			        	name: '其他',
+			        	icon: 'roundRect'
+			        }],
+			        itemWidth: 14,
+			        itemHeight: 8,
+			        textStyle: {
+			        	color: '#8ca6bf'
+			        }
+			    },
+			    grid: {
+			    	top: '25%',
+			        left: '3%',
+			        right: '3%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    xAxis: {
+			        type: 'category',
+			        boundaryGap: false,
+			        data: ['06-25','06-26','06-27','06-28','06-29','06-30','07-01'],
+			        axisLine: {
+			        	show: false
+			        },
+			        axisTick: {
+			        	inside: true
+			        },
+			        axisLabel: {
+			        	color: '#8ca6bf',
+			        	rotate: 50
+			        },
+			        splitLine: {
+			        	show: false
+			        }
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisTick: {
+			        	show: false
+			        },
+			        axisLabel: {
+			        	color: '#8ca6bf'
+			        },
+			        axisLine: {
+			        	show: false
+			        },
+			        splitLine: {
+			        	lineStyle: {
+			        		color: '#0d3a70'
+			        	}
+			        },
+			        splitArea: {
+			        	show: true,
+			        	areaStyle: {
+			        		color: ['rgba(13,58,112,0.3)','rgba(0,0,0,0)']
+			        	}
+			        }
+			    },
+			    series: [
+			        {
+			            name:'科技',
+			            type:'line',
+			            data:[120, 132, 101, 134, 90, 230, 210],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#ff4040'
+			            	}
+			            }
+			        },
+			        {
+			            name:'教育',
+			            type:'line',
+			            data:[220, 182, 191, 234, 290, 330, 310],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#ff7c49'
+			            	}
+			            }
+			        },
+			        {
+			            name:'购物',
+			            type:'line',
+			            data:[150, 232, 201, 154, 190, 330, 410],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#ffc549'
+			            	}
+			            }
+			        },
+			        {
+			            name:'旅行',
+			            type:'line',
+			            data:[320, 332, 301, 334, 390, 330, 320],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#8fe85f'
+			            	}
+			            }
+			        },
+			        {
+			            name:'军事',
+			            type:'line',
+			            data:[820, 932, 901, 934, 1290, 1330, 1320],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#18c8fa'
+			            	}
+			            }
+			        },
+			        {
+			        	name:'金融',
+			            type:'line',
+			            data:[320, 432, 501, 634, 790, 830, 920],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#cc7cff'
+			            	}
+			            }
+			        },
+			        {
+			        	name:'医疗',
+			            type:'line',
+			            data:[520, 632, 701, 834, 990, 1030, 1120],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#00f6ff'
+			            	}
+			            }
+			        },
+			        {
+			        	name:'其他',
+			            type:'line',
+			            data:[620, 732, 801, 334, 1000, 1130, 1220],
+			            itemStyle: {
+			            	normal: {
+			            		color: '#efefef'
+			            	}
+			            }
+			        }
+			    ]
+			};
+			myChart.setOption(option);
+			p5 = myChart;
+
+		}
+		/*地图*/
+		var geoCoordMap = {
+			'思明区': [118.119449, 24.458395],
+			'海沧区': [118.006766, 24.512064],
+			'湖里区': [118.138997, 24.529948],
+			'集美区': [118.052759, 24.61355],
+			'同安区': [118.105364, 24.729658],
+			'翔安区': [118.258579, 24.611974],
+			'软件园二期': [118.188087, 24.494134],
+			'软件园三期': [118.059395, 24.612685],
+			'观音山': [118.204635, 24.501241],
+			'厦门大学（思明校区）': [118.111907, 24.442647],
+			'集美大学': [118.101299, 24.588486],
+			'厦门理工学院（集美校区）': [118.093289, 24.630421],
+			'华侨大学（厦门校区）': [118.091709, 24.610289],
+			'厦门北站': [118.080553, 24.642666],
+			'五缘湾湿地公园': [118.181001, 24.517551],
+			'厦门市公安局': [118.092297, 24.463405],
+		};
+		var data1 = [
+			{
+				name: '厦门北站',
+				siteName: '厦门人才网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '五缘湾湿地公园',
+				siteName: '厦门房产网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '华侨大学（厦门校区）',
+				siteName: '厦门电商网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '观音山',
+				siteName: '厦门汽车网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '厦门大学（思明校区）',
+				siteName: '厦门美食网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '集美大学',
+				siteName: '厦门汽车网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '黑客工具'
+			}
+		];
+		var mapData = [
+			{
+				name: '厦门理工学院（集美校区）',
+				siteName: '厦门人才网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			},{
+				name: '厦门市公安局',
+				siteName: '厦门房产网',
+				time: '2018-05-02 10:00:00',
+				site: 'www.xiamen.com',
+				gjType: '注入攻击'
+			}
+		];
+		var convertData = function(data) {
+		    var res = [];
+		    for (var i = 0; i < data.length; i++) {
+		       var geoCoord = geoCoordMap[data[i].name];
+		       if (geoCoord) {
+		       		res.push({
+		       			name: data[i].name,
+		       			value: geoCoord.concat(data[i].value),
+		       			time: geoCoord.concat(data[i].time),
+		       			site: geoCoord.concat(data[i].site),
+		       			gjType: geoCoord.concat(data[i].gjType),
+		       			siteName: geoCoord.concat(data[i].siteName)
+		       		});
+		       }
+		    }
+		    return res;
+		};
+		var index = 0;
+		function addData() {
+			mapData.push(data1[index]);
+			if (mapData.length > 5) {
+				mapData.shift();
+			}
+			index++;
+			if (index > data1.length - 1) {
+				index = 0;
+			}
+		}
+		function chartMap(id){
+			var myChart = echarts.init(document.getElementById(id));
+			var mapColorData = [{
+				name: '思明区',
+				value: 20
+			},{
+				name: '海沧区',
+				value: 35
+			},{
+				name: '湖里区',
+				value: 80
+			},{
+				name: '集美区',
+				value: 140
+			},{
+				name: '同安区',
+				value: 550
+			},{
+				name: '翔安区',
+				value: 130
+			}];
+			var option = {
+				tooltip: {
+					trigger: 'item',
+					formatter: function(params){
+						return params.name;
+					}
+				},
+				visualMap: { //图例值控制
+					show: false,
+					type: 'continuous',
+			        min: 0,
+			        max: 200,
+			        text: ['High', 'Low'],
+			        realtime: false,
+			        calculable: true,
+			        color: ['#003868', '#00325e', '#002d59', '#01274e'],
+			        seriesIndex: [0]
+			    },
+			    geo: {
+			        map: '厦门',
+			        label: {
+			            show: true,
+			            color: '#8ca6df'
+			        },
+			        top: 'middle',
+			        roam: true, //是否允许缩放
+			        emphasis: {
+			        	label: {
+			        		show: true,
+			        		color: '#fff'
+			        	}
+			        },
+			        itemStyle: {
+			            normal: {
+			            	borderWidth: 1.2,
+			                borderColor: '#3f7da4' //省市边界线
+			            },
+			            emphasis: {
+			                areaColor: '#011025'
+			            }
+			        }
+			    },
+			    series: [
+			    	{
+			    		name: '',
+			    		type: 'map',
+			    		geoIndex: 0,
+			    		data: convertData(mapColorData),
+			    		tooltip: {
+			    			show: false
+			    		}
+			    	},
+			    	{
+			    		name: '实时攻击显示',
+			    		type: 'effectScatter',
+			    		coordinateSystem: 'geo',
+			    		rippleEffect: { //涟漪特效
+			                period: 3, //动画时间，值越小速度越快
+			                brushType: 'stroke', //波纹绘制方式 stroke, fill
+			                scale: 2.8 //波纹圆环最大限制，值越大波纹越大
+			            },
+			            hoverAnimation: true,
+			            data: convertData(mapData),
+			            symbol: 'circle',
+			            symbolSize: 12,
+			            tooltip: {
+			            	show:true
+			            },
+			            z: 0,
+			            symbolOffset: [0, '-30%'],
+			            label: {
+			            	normal: {
+			            		formatter: function(params){
+			            			var siteName = params.data.siteName[2],
+			            				site = params.data.site[2],
+			            				time = params.data.time[2],
+			            				gjType = params.data.gjType[2];
+			            			switch(gjType){
+			            				case '黑客工具':
+			            					return '{a|' + siteName + '  ' + '}' + '{color1|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				case '非法HTTP请求':
+			            					return '{a|' + siteName + '  ' + '}' + '{color2|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				case '注入攻击':
+			            					return '{a|' + siteName + '  ' + '}' + '{color3|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				case '暴力破解':
+			            					return '{a|' + siteName + '  ' + '}' + '{color4|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				case 'DDOS攻击':
+			            					return '{a|' + siteName + '  ' + '}' + '{color5|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				case '网页后门':
+			            					return '{a|' + siteName + '  ' + '}' + '{color6|' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            					break;
+			            				default:
+			            					return '{a|' + siteName + '  ' + gjType + '}' + '\n' + '{b|' + time + '}';
+			            			}
+			            		},
+			            		rich: {
+			            			a: {
+			            				color: '#bbdeff',
+			            				fontWeight: 'bold'
+			            			},
+			            			b: {
+			            				color: '#abc2d9',
+			            				lineHeight: 26
+			            			},
+			            			color1: {
+			            				color: '#ff4040',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			},
+			            			color2: {
+			            				color: '#ff7c49',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			},
+			            			color3: {
+			            				color: '#ffc549',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			},
+			            			color4: {
+			            				color: '#8fe85f',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			},
+			            			color5: {
+			            				color: '#18c8fa',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			},
+			            			color6: {
+			            				color: '#cc7cff',
+			            				fontSize: 14,
+			            				fontWeight: 'bold'
+			            			}
+			            		},
+			            		position: 'top',
+			            		show: true,
+			            		backgroundColor: {
+			            			image: '../images/new/tipBg.png',
+			            			opacity: 0.6
+			            		},
+			            		padding: [10, 10, 5, 10],
+			            		borderRadius: 5,
+			            		color: '#fff'
+			            	},
+			            	emphasis: {
+			            		show: false
+			            	}
+			            },
+			            itemStyle: {
+			            	normal: {
+			            		color: function(params) {
+			            			if (params.data.siteName[2]=='厦门人才网') {//第一的显示为红色
+			            				return '#ff4040';
+			            			}else{
+			            				return '#228fff';
+			            			}
+			            		},
+			            		opacity: 0.9
+			            	}
+			            }
+			    	}
+			    ]
+			}
+			myChart.setOption(option);
+			p7 = myChart;
+		}
+		setInterval(function(){
+			addData();
+			p7.setOption({
+				series: [{
+					name: '实时攻击显示',
+					data: convertData(mapData)
+				}]
+			})
+		},5000);
+
+		window.addEventListener('resize', function(){
+			p1.resize();
+			p4.resize();
+			p5.resize();
+			p7.resize();
+		})
+	</script>
+</body>
+</html>

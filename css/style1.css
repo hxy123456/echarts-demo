@@ -1,0 +1,250 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
+body{
+    width: 100%;
+    background: #05091f;
+}
+ul,li{
+    list-style: none;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    zoom: 1;
+}
+.clearfix:after{
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+/*头部*/
+.head {
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    height: 90px;
+    background: url(../images/new/titleBg.jpg) no-repeat;
+}
+.head span{
+    display: block;
+    padding-top: 20px;
+    letter-spacing: 5px;
+    text-shadow: 5px 5px 5px rgba(0,0,0,.5);
+}
+/*主内容*/
+.container {
+    width: 97.291%;
+    margin: 10px auto 0;
+}
+.container .left{
+    width: 21.95%;
+}
+.container .mid{
+    width: 54.6%;
+    margin: 0 0.75%;
+}
+.container .right{
+    width: 21.95%;
+}
+.container .left > .box:first-child,
+.container .mid > .box:first-child,
+.container .right > .box:first-child{
+    margin-top: 0;
+}
+/*公用标题样式、背景样式*/
+.box {
+    position: relative;
+    width: 100%;
+    margin-top: 20px;
+    background: rgba(16,93,158,0.1);
+    border: 1px solid #084b84;
+    -webkit-box-shadow:0px 0px 50px rgba(16,93,158,.6) inset;
+    -moz-box-shadow:0px 0px 50px rgba(16,93,158,.6)inset;
+    box-shadow:0px 0px 50px rgba(16,93,158,.6) inset;
+}
+.box .icon{
+    position: absolute;
+}
+.box .icon1{
+    top: 0;
+    left: 0;
+}
+.box .icon2{
+    top: 0;
+    right: 0;
+}
+.box .icon3{
+    bottom: 0;
+    left: 0;
+}
+.box .icon4{
+    bottom: 0;
+    right: 0;
+}
+.title{
+    height: 46px;
+    line-height: 46px;
+    background: #091f47;
+    padding-left: 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.title img{
+    vertical-align: middle;
+    margin-right: 15px;
+}
+.title .name{
+    color: #bbdeff;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.title .num{
+    color: #ff6f4d;
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/*主内容开始*/
+.box1,
+.box2,
+.box4,
+.box5{
+    height: 310px;
+}
+
+.box3,.box6{
+    height: 350px;
+}
+.box7{
+    height: 227px;
+}
+.box8{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 270px;
+    height: 200px;
+}
+.box8 .tabList{
+    width: 100%;
+    text-align: center;
+    color: #8ca6bf;
+    font-size: 12px;
+}
+.box8 .tabList div {
+    float: left;
+    line-height: 32px;
+}
+.box8 .tabList li div:nth-child(1) {
+    width: 12.59%;
+}
+.box8 .tabList li div:nth-child(2) {
+    width: 52.926%;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.box8 .tabList li div:nth-child(3) {
+    width: 34.481%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.box8 .tabList div .num{
+    display: inline-block;
+    line-height: 16px;
+    height: 16px;
+    padding: 0 6px;
+    border-radius: 3px;
+}
+.box8 .tabList div .count{
+    color: #ffc549;
+}
+.box8 .tabList li.first .num{
+    background: #ff4040;
+    color: #fff;
+}
+.box8 .tabList li.second .num{
+    background: #cc7cff;
+    color: #fff;
+}
+.box8 .tabList li.third .num{
+    background: #18c8fa;
+    color: #fff;
+}
+.mid .top{
+    position: relative;
+    width: 100%;    
+    height: 763px;  
+}
+.box9{
+    margin-top: 0;
+}
+.mid .top .box9 .title{
+    width: 50%; 
+}
+
+#bar1,
+#bar2,
+#bar3,
+#pie{
+    width: 100%;    
+    height: 258px;  
+}
+
+#line1,
+#line2{
+    width: 100%;    
+    height: 298px;  
+}
+
+#tab{
+    width: 100%;    
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#tab thead tr{
+    height: 52px;   
+    line-height: 52px;
+    font-size: 14px;
+    color: #bbdeff;
+    background: #091f47;
+}
+#tab tbody tr{
+    font-size: 12px;
+    height: 35px;   
+    line-height: 35px;
+}
+#tab tbody tr:nth-child(2n){
+    color: #4fa7bd;
+    background: rgba(13,58,112,.15);
+}
+#tab tbody tr:nth-child(2n+1){
+    color: #3d7ad7;
+}
+#map{
+    width: 100%;   
+    height: 710px;  
+}
