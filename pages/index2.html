@@ -31,7 +31,7 @@
 					<img src="../images/new/arrow.png" alt="">
 					<span class="name">当日被攻击行业</span>
 				</div>
-				<div id="bar3"></div>
+				<div id="pie2"></div>
 			</div>
 			<div class="box box3">	
 				<img src="../images/new/icon1.png" alt="" class="icon icon1">
@@ -189,9 +189,9 @@
 				<img src="../images/new/icon4.png" alt="" class="icon icon4">
 				<div class="title">	
 					<img src="../images/new/arrow.png" alt="">
-					<span class="name">被攻击区域趋势 （7日走势）</span>
+					<span class="name">攻击总数</span>
 				</div>
-				<div id="line2"></div>
+				<div id="pie3"></div>
 			</div>
 		</div>
 	</div>
@@ -205,7 +205,10 @@
 		$(function(){
 			formatNumber();
 			hozBar('bar1');
-			pieMap('pie');
+			bar('bar2');
+			pieMap1('pie');
+			pieMap2('pie2');
+			pieMap3('pie3');
 			line('line1');
 			chartMap('map');
 		})
@@ -360,8 +363,206 @@
 	        myChart.setOption(option);
 	        p1 = myChart;
 		}
+		function bar(id){
+			var myChart = echarts.init(document.getElementById(id));
+			var chartData = [
+				{name:'动感单车', value: 120},
+				{name:'记分板', value: 200},
+				{name:'口哨', value: 150},
+				{name:'男性', value: 80},
+				{name:'球拍', value: 110},
+				{name:'运动服', value: 180}
+			];
+			var icons = {
+				'tu1': '../images/new/tu1.png',
+				'tu2': '../images/new/tu2.png',
+				'tu3': '../images/new/tu3.png',
+				'tu4': '../images/new/tu4.png',
+				'tu5': '../images/new/tu5.png',
+				'tu6': '../images/new/tu6.png'
+			}
+			var bgData = [],
+				itemData = [],
+				yData = [];
+			chartData.forEach(function(item,index){
+				itemData.push(item.value);
+				yData.push(item.name);
+			})
+			chartData.forEach(function(item,index){
+				bgData.push({
+					name: item.name,
+					value: Math.max.apply(null, itemData) + 50
+				});
+			})
+			
+			var option = {
+			    tooltip : {
+			        axisPointer: {
+			        	type: 'shadow'
+			        }
+			    },
+			    grid: {
+			    	top: 10,
+			    	left: 40,
+			    	right: 50,
+			    	bottom: 0,
+			    	containLabel: true
+			    },
+			    xAxis: {
+			    	type: 'value',
+			    	show: false,
+			    	axisLabel: {
+			    		color: '#efefef'
+			    	}
+			    },
+			    yAxis: {
+			    	type: 'category',
+			    	data: yData,
+			    	axisLine: {
+			    		show: false
+			    	},
+			    	axisLabel: {
+			    		color: '#efefef',
+			    		formatter: function(value, index){
+			    			switch(index) {
+			    				case 0:
+			    					return '{a|}' + '{value|' + value + '}';
+			    					break;
+			    				case 1:
+			    					return '{b|}' + '{value|' + value + '}';
+			    					break;
+			    				case 2:
+			    					return '{c|}' + '{value|' + value + '}';
+			    					break;
+			    				case 3:
+			    					return '{d|}' + '{value|' + value + '}';
+			    					break;
+			    				case 4:
+			    					return '{e|}' + '{value|' + value + '}';
+			    					break;
+			    				case 5:
+			    					return '{f|}' + '{value|' + value + '}';
+			    					break;
+			    				default:
+			    					return '{value|' + value + '}';
+			    			}
+			    		},
+			    		rich: {
+			    			value: {
+			    				width: 56
+			    			},
+			    			a: {
+			    				backgroundColor: {
+			    					image: icons['tu1']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			},
+			    			b: {
+			    				backgroundColor: {
+			    					image: icons['tu2']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			},
+			    			c: {
+			    				backgroundColor: {
+			    					image: icons['tu3']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			},
+			    			d: {
+			    				backgroundColor: {
+			    					image: icons['tu4']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			},
+			    			e: {
+			    				backgroundColor: {
+			    					image: icons['tu5']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			},
+			    			f: {
+			    				backgroundColor: {
+			    					image: icons['tu6']
+			    				},
+			    				marginLeft: 10,
+			    				align: 'center',
+			    				width: 30,
+			    				height: 30
+			    			}
+			    		}
+			    	},
+			    	axisTick: {
+			    		show: false
+			    	}
+			    },
+			    textStyle: {
+			    	color: '#03fbfe'
+			    },
+			    series: [
+			    	{
+			    		type: 'bar',
+			    		itemStyle: {
+			    			normal: {
+			    				color: '#0b4e70'
+			    			}
+			    		},
+			    		silent: true,
+			    		barWidth: 14,
+			    		barGap: '-100%',
+			    		label: {
+			    			show: true,
+			    			position: 'right',
+			    			formatter: function(params){
+			    				var stuNum = 0;
+			    				chartData.forEach(function(value, index, array){
+			    					if (params.name == value.name) {
+			    						stuNum = value.value;
+			    					}
+			    				})
+			    				return stuNum + '{color1|' + " 条}";
+			    			},
+			    			rich: {
+			    				color1: {
+			    					color: '#73bfe5'
+			    				}
+			    			}
+			    		},
+			    		data: bgData
+			    	},{
+			    		data: chartData,
+			    		type: 'bar',
+			    		barWidth: 14,
+			    		itemStyle: {
+			    			normal: {
+			    				color: '#03fbfe'
+			    			}
+			    		},
+			    		z:3
+			    	}
+			    ]
+			};
+			myChart.setOption(option);
+			p2 = myChart;
+
+		}
 		/*饼图*/
-		function pieMap(id){
+		function pieMap1(id){
 			// 基于准备好的dom，初始化echarts实例
 	        var myChart = echarts.init(document.getElementById(id));
 
@@ -433,6 +634,220 @@
 	        // 使用刚指定的配置项和数据显示图表。
 	        myChart.setOption(option);
 	        p4 = myChart;
+		}
+		function pieMap2(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+	        var option = {
+	        	title: {
+	        		text: '风险指数等级分布',
+	        		left: 'center',
+	        		top: 15,
+	        		textStyle: {
+	        			color: '#fff',
+	        			fontSize: 16
+	        		}
+	        	},
+	        	tooltip: {
+	        		trigger: 'item',
+	        		formatter: "{b} : {c}"
+	        	},
+	        	color: ['#0b4e70','#57b2e9','#08f9fb'],
+	        	series: [{
+	        		name: 'pie1',
+	        		type: 'pie',
+	        		radius: '60%',
+	        		center: ['50%','60%'],
+	        		data: [
+	        			{
+	        				value: 132,
+	        				name: '高危'
+	        			},
+	        			{
+	        				value: 232,
+	        				name: '中危'
+	        			},
+	        			{
+	        				value: 432,
+	        				name: '低危'
+	        			}
+	        		],
+	        		itemStyle: {
+	        			normal: {
+	        				color: 'transparent'
+	        			},
+	        			emphasis: {
+	        				shadowBlur: 10,
+	        				shadowOffsetX: 0,
+	        				shadowColor: 'rgba(0,0,0,.5)'
+	        			}
+	        		},
+	        		z: 1,
+	        		labelLine: {
+	        			normal: {
+	        				show: false,
+	        				length: 2
+	        			}
+	        		},
+	        		label: {
+	        			normal: {
+	        				textStyle: {
+	        					color: '#fff',
+	        					fontSize: 12
+	        				},
+	        				formatter: '{b}'
+	        			}
+	        		}
+	        	},{
+	        		name: 'pie2',
+	        		type: 'pie',
+	        		radius: '60%',
+	        		center: ['50%', '60%'],
+	        		data:[
+	        			{
+	        				value: 132,
+	        				name: '高危'
+	        			},
+	        			{
+	        				value: 232,
+	        				name: '中危'
+	        			},
+	        			{
+	        				value: 432,
+	        				name: '低危'
+	        			}
+	        		],
+	        		z: 2,
+	        		itemStyle: {
+	        			emphasis: {
+	        				shadowBlur: 10,
+	        				shadowOffsetX: 0,
+	        				shadowColor: 'rgba(0,0,0,.5)'
+	        			}
+	        		},
+	        		labelLine: {
+	        			show: true
+	        		},
+	        		label: {
+	        			normal: {
+	        				textStyle: {
+	        					color: '#fff',
+	        					fontSize: 12
+	        				},
+	        				position: 'inside',
+	        				formatter: '{d}%'
+	        			}
+	        		}
+	        	}]
+	        }
+	        myChart.setOption(option);
+			p3 = myChart;
+		}
+		function pieMap3(id){
+			// 基于准备好的dom，初始化echarts实例
+	        var myChart = echarts.init(document.getElementById(id));
+	        var option = {
+	        	tooltip: {
+	        		trigger: 'item',
+	        		formatter: function(params, ticket, callback){
+	        			var res = params.seriesName;
+	        			res += '<br />' + params.name + ' : ' + params.percent + '%';
+	        			return res;
+	        		}
+	        	},
+	        	textStyle: {
+	        		color: '#fff'
+	        	},
+	        	itemStyle: {
+	        		normal: {
+	        			color: '#c23531',
+	        			shadowBlur: 10,
+	        			zlevel: 10,
+	        			shadowColor: '#fcc',
+	        			avoidLabelOverlap: true,
+	        			shadowOffsetY: '5'
+	        		}
+	        	},
+	        	grid: {
+	        		bottom: '20%',
+	        		left: 0
+	        	},
+	        	title: [{
+	        		text: '75',
+	        		subtext: '攻击总数',
+	        		left: '70%',
+	        		top: '40%',
+	        		textAlign: 'center',
+	        		textStyle: {
+	        			color: '#fff',
+	        			textAlign: 'center',
+	        			fontSize: 16,
+	        			fontWeight: 'normal'
+	        		},
+	        		subtextStyle: {
+	        			color: '#73bfe5',
+	        			fontSize: 12
+	        		}
+	        	}],
+	        	xAxis: [{
+	        		show: false,
+	        		type: 'category'
+	        	}],
+	        	yAxis: [{
+	        		show: false
+	        	}],
+	        	series: [{
+	        		type: 'pie',
+	        		name: '攻击总数',
+	        		itemStyle: {
+	        			normal: {
+	        				color: '#03fbfe'
+	        			}
+	        		},
+	        		center: ['30%','50%'],
+	        		radius: ['30%','40%'],
+	        		labelLine: {
+	        			normal: {
+	        				show: false
+	        			}
+	        		},
+	        		data: [{
+	        			value: 75,
+	        			label: {
+	        				normal: {
+	        					formatter: '{d} %',
+	        					position: 'center',
+	        					show: true,
+	        					textStyle: {
+	        						fontSize: 14,
+	        						fontWeight: 'bold',
+	        						color: '#fff'
+	        					}
+	        				}
+	        			},
+		        		tooltip:{
+		        			trigger: 'item',
+		        			formatter: '攻击总数： {c}'
+		        		}
+	        		},{
+		        		value: 300,
+		        		tooltip: {
+		        			show: false
+		        		},
+		        		itemStyle: {
+		        			normal: {
+		        				color: '#0b4e70'
+		        			},
+		        			emphasis: {
+		        				color: '#0b4e70'
+		        			}
+		        		},
+	        			hoverAnimation: false
+	        		}]
+	        	}]
+	        }
+	        myChart.setOption(option);
+			p6 = myChart;
 		}
 		/*折线*/
 		function line(id){
@@ -920,8 +1335,11 @@
 
 		window.addEventListener('resize', function(){
 			p1.resize();
+			p2.resize();
+			p3.resize();
 			p4.resize();
 			p5.resize();
+			p6.resize();
 			p7.resize();
 		})
 	</script>
